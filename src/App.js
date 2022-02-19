@@ -1,25 +1,15 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import {withFirebase} from './context'
+import Login from './login';
+import Firebase from './firebase.js';
+import FirebaseContext from './context.js';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Wee woo
-        </p>
-        <p>ding dong</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FirebaseContext.Provider value={new Firebase()}>
+      <Login />
+    </FirebaseContext.Provider>
   );
 }
 
