@@ -29,16 +29,25 @@ function App(props) {
 function HomePage() {
   return (
     <div>
-      <h2>Epic Home Page</h2>
-      <a href="/login">Login</a>
+      <div id="navbar" class="nav">
+        <p>
+          Temporary Project Name
+        </p>
+        <button class="loginButton" onClick={(e) => {window.location.href="/login"}}>Login</button>
+      </div>
     </div>
   );
 }
 function LoginPage() {
   return (
     <div>
+      <div id="navbar" class="nav">
+        <p>
+          Temporary Project Name
+        </p>
+        <button class="loginButton" onClick={(e) => {window.location.href="/"}}>Home</button>
+      </div>
       <Login />
-      <a href="/">Home</a>
     </div>
   )
 }
