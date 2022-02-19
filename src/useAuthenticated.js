@@ -1,13 +1,16 @@
-import React from 'react';
+import React from "react";
 
 const useAuthenticated = (auth) => {
-    const [a, setA] = React.useState(auth.currentUser)
-    React.useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => setA(user))
-        return () => unsubscribe()
-    })
+  const [a, setA] = React.useState(auth.currentUser);
+  React.useEffect(() => {
+    console.log(a);
+  }, [a]);
+  React.useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => setA(user));
+    return () => unsubscribe();
+  }, []);
 
-    return a
-}
+  return a;
+};
 
-export default useAuthenticated
+export default useAuthenticated;
