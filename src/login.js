@@ -6,8 +6,9 @@ import 'firebaseui/dist/firebaseui.css'
 const Login = (props) => {
     props.firebase.ui.start('#firebaseui-auth-container', {
         signInOptions: [
-            props.firebase.app.auth.EmailAuthProvider.PROVIDER_ID
+            props.firebase.app.auth.EmailAuthProvider.PROVIDER_ID,
         ],
+        signInSuccessUrl: '/home',
     });
 
     return (

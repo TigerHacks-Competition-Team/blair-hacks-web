@@ -2,15 +2,28 @@ import logo from './logo.svg';
 import './App.css'
 import {withFirebase} from './context'
 import Login from './login';
-import Firebase from './firebase.js';
-import FirebaseContext from './context.js';
+import {BrowserRouter as Router, Switch, Route} from 'react-browser-dom';
+import useAuthenticated from './useAuthenticated';
 
 function App(props) {
+  const authenticated = useAuthenticated(props.firebase.auth)
+  
   return (
-    <FirebaseContext.Provider value={new Firebase()}>
-      <Login />
-    </FirebaseContext.Provider>
+    <Router>
+      {authenticated && authenticated.emailVerified ? (
+        <Switch>
+          
+        </Switch>
+      ) : (
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/"></Route>
+        </Switch>
+      )}
+    </Router>
   );
 }
 
-export default App;
+export default withFirebase(App);
