@@ -25,17 +25,26 @@ function App(props) {
   );
 }
 
+function NavBar() {
+  return (
+    <nav class="navbar">
+      <img src={logo} alt="Logo" />
+      <a href="/">Title Text</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="signup">Sign Up</a>
+        <a href="login">Login</a>
+      </div>
+    </nav>
+  );
+}
+
 // Add pages down here
 function HomePage() {
   return (
-    <div>
-      <div id="navbar" class="nav">
-        <p>
-          Temporary Project Name
-        </p>
-        <button class="loginButton" onClick={(e) => {window.location.href="/login"}}>Login</button>
+      <div>
+        <NavBar/>
       </div>
-    </div>
   );
 }
 function LoginPage() {
