@@ -12,17 +12,35 @@ function App(props) {
     <Router>
       {authenticated ? (
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<p>hello world</p>} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       ) : (
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<p>hello world</p>} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       )}
     </Router>
   );
+}
+
+// Add pages down here
+function HomePage() {
+  return (
+    <div>
+      <h2>Epic Home Page</h2>
+      <a href="/login">Login</a>
+    </div>
+  );
+}
+function LoginPage() {
+  return (
+    <div>
+      <Login />
+      <a href="/">Home</a>
+    </div>
+  )
 }
 
 export default withFirebase(App);
