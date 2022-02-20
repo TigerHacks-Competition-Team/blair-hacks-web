@@ -3,13 +3,12 @@ import { withFirebase } from "./context";
 import HeartRate from "./HeartRate";
 import NavBar from "./NavBar";
 import "./App.css";
-import { LineChart, Line, XAxis, YAxis } from 'recharts';
+import { LineChart, Line, XAxis, YAxis } from "recharts";
 
 const Workout = (props) => {
   const [session, setSession] = useState(null);
   const [workingOut, setWorkingOut] = useState(false);
   const [bpm, setBpm] = useState(0);
-
 
   useEffect(() => {
     onBPMChange(bpm);
@@ -54,6 +53,18 @@ const Workout = (props) => {
     }
   }, [workingOut]);
 
+  var formatDate = (unixtime) => {
+    var newDate = new Date();
+    newDate.setTime(unixtime);
+    var dateString =
+      newDate.getHours() +
+      ":" +
+      newDate.getMinutes() +
+      ":" +
+      newDate.getSeconds();
+    return dateString;
+  };
+
   // document.getElementById("start-button").addEventListener("click", () => {
   //   document.getElementById("start-button").style.display = "none";
   //   document.getElementById("workout-ui").style.display = "initial";
@@ -68,35 +79,52 @@ const Workout = (props) => {
         {workingOut ? "Done" : "Start"}
       </button> */}
 
-        <div className="main-page">
-          <div className="page-title">
-            <p>Workout</p>
-          </div>
-          <div id="start-button" onClick={() => {
+      <div className="main-page">
+        <div className="page-title">
+          <p>Workout</p>
+        </div>
+        <div
+          id="start-button"
+          onClick={() => {
             setWorkingOut(true);
             document.getElementById("start-button").style.display = "none";
             document.getElementById("workout-ui").style.display = "initial";
-          }}>
-            <p>Start Workout</p>
-          </div>
-          <div id="workout-ui">
-            <div className="center">
-              <div className="camera">
-                {workingOut && <HeartRate id="video-feed" onBPMChange={(bpm) => setBpm(bpm)} />}
-                {/* <div id="video-feed"></div> */}
-              </div>
-              <div className="bpm-feed">
-                {/* <p id="bpm">82</p>
-                <p className="bpm-text">BPM</p> */}
-                {session && (<LineChart width={640} height={480} data={session.heartRate}>
-                  <XAxis dataKey="date" />
-                  <YAxis/>
-                  <Line type="monotone" dataKey="bpm" stroke="#000000" />
-                  <p>heartrate: {JSON.stringify(session.heartRate)}</p>
-                </LineChart>)}
-              </div>
+          }}
+        >
+          <p>Start Workout</p>
+        </div>
+        <div id="workout-ui">
+          <div className="center">
+            <div className="camera">
+              {workingOut && (
+                <HeartRate id="video-feed" onBPMChange={(bpm) => setBpm(bpm)} />
+              )}
+              {/* <div id="video-feed"></div> */}
             </div>
-            <div id="stop-button" onClick={() => {
+            <div className="bpm-feed">
+              {/* <p id="bpm">82</p>
+                <p className="bpm-text">BPM</p> */}
+              {session && (
+                <>
+                  <LineChart
+                    width={640}
+                    height={480}
+                    data={session.heartRate.map((hr) => ({
+                      ...hr,
+                      name: String(hr.date),
+                    }))}
+                  >
+                    <XAxis dataKey="name" tickFormatter={formatDate} />
+                    <YAxis />
+                    <Line type="monotone" dataKey="bpm" stroke="#497CE4" />
+                  </LineChart>
+                </>
+              )}
+            </div>
+          </div>
+          <div
+            id="stop-button"
+            onClick={() => {
               setWorkingOut(false);
               document.getElementById("start-button").style.display = "initial";
               document.getElementById("workout-ui").style.display = "none";
