@@ -1,0 +1,35 @@
+body {
+    background: linear-gradient(50deg, #5766DD, #1AC6FC) !important;
+    width: 100vw;
+    height: 100vh;
+}
+#back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #F5F5F5;
+    padding: 10px 15px;
+    border-radius: 10px;
+    filter: drop-shadow(0px 0px 40px rgba(116, 166, 132, 0.7));
+}
+#back-button p {
+    margin: 0px;
+    padding: 0px;
+    background: linear-gradient(50deg, #5766DD, #1AC6FC);;
+    color: black;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: bold;
+    font-size: 24px;
+}
+#firebaseui-auth-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

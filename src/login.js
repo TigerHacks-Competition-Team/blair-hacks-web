@@ -12,16 +12,8 @@ const Login = (props) => {
 
   return (
     <div>
-      <div id="navbar" className="nav">
-        <p>Temporary Project Name</p>
-        <button
-          className="loginButton"
-          onClick={(e) => {
-            window.location.href = "/";
-          }}
-        >
-          Home
-        </button>
+      <div id="back-button">
+        <p>Back</p>
       </div>
       <div id="firebaseui-auth-container"></div>
     </div>
