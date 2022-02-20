@@ -47,23 +47,29 @@ function NavBar() {
 // Add pages down here
 function HomePage() {
   return (
-      <div>
-        <NavBar/>
-      </div>
+    <div>
+      <NavBar />
+      <HeartRate />
+    </div>
   );
 }
 function LoginPage() {
   return (
     <div>
       <div id="navbar" class="nav">
-        <p>
-          Temporary Project Name
-        </p>
-        <button class="loginButton" onClick={(e) => {window.location.href="/"}}>Home</button>
+        <p>Temporary Project Name</p>
+        <button
+          class="loginButton"
+          onClick={(e) => {
+            window.location.href = "/";
+          }}
+        >
+          Home
+        </button>
       </div>
       <Login />
     </div>
-  )
+  );
 }
 
 export default withFirebase(App);
