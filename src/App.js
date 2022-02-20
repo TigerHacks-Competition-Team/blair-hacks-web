@@ -51,12 +51,6 @@ function NavBar() {
 function HomePage() {
   AOS.init({offset: 350});
   return (
-<<<<<<< HEAD
-    <div>
-      <NavBar />
-      <HeartRate />
-    </div>
-=======
       <div>
         <NavBar/>
         <div className="main-page">
@@ -98,34 +92,20 @@ function HomePage() {
 
         </div>
       </div>
->>>>>>> 87f88834c34d161156f36de75bc855a92f1ff649
   );
 }
 function LoginPage() {
   return (
     <div>
-<<<<<<< HEAD
-      <div id="navbar" class="nav">
-        <p>Temporary Project Name</p>
-        <button
-          class="loginButton"
-          onClick={(e) => {
-            window.location.href = "/";
-          }}
-        >
-          Home
-        </button>
-=======
       <div id="navbar" className="nav">
         <p>
           Temporary Project Name
         </p>
         <button className="loginButton" onClick={(e) => {window.location.href="/"}}>Home</button>
->>>>>>> 87f88834c34d161156f36de75bc855a92f1ff649
       </div>
       <Login />
     </div>
-  );
+  )
 }
 
 export default withFirebase(App);
