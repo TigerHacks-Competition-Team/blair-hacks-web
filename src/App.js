@@ -15,7 +15,7 @@ function App(props) {
       <Router>
         {authenticated ? (
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<p>logged in</p>} />
           </Routes>
         ) : (
           <Routes>
