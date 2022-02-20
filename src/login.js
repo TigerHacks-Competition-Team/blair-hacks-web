@@ -8,7 +8,7 @@ const Login = (props) => {
         signInOptions: [
             props.firebase.app.auth.EmailAuthProvider.PROVIDER_ID,
         ],
-        signInSuccessUrl: '/home',
+        signInSuccessUrl: '/',
     });
 
     return (
