@@ -81,7 +81,9 @@ function HomePage() {
 
         <div className="bottom-curve">
           <div id="signup" data-aos="fade-up">
-            <p className="signup-text">Sign Up Now</p>
+            <p className="signup-text" onClick={() => {
+              window.location.pathname = "/login"
+            }}>Sign Up Now</p>
           </div>
         </div>
       </div>
