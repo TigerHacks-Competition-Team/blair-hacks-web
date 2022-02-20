@@ -5,6 +5,9 @@ import { withFirebase } from "./context";
 import Login from "./login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import useAuthenticated from "./useAuthenticated";
+import BPM from "./BPM";
+import HeartRate from "./HeartRate";
+import { OpenCvProvider } from "opencv-react";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
@@ -12,19 +15,21 @@ function App(props) {
   const authenticated = useAuthenticated(props.firebase.auth);
 
   return (
-    <Router>
-      {authenticated ? (
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      )}
-    </Router>
+    <OpenCvProvider>
+      <Router>
+        {authenticated ? (
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        )}
+      </Router>
+    </OpenCvProvider>
   );
 }
 
