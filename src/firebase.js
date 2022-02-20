@@ -26,6 +26,20 @@ class Firebase {
     this.firestore = app.firestore()
     this.ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(this.auth)
     this.app = app
+    this.sendDataToServer = (data) => {
+        if (!this.auth.W) {
+            window.location.href.replace("login")
+        } else {
+            this.firestore.collection("UserData/"+this.auth.W+"/workouts").add(data)
+        }
+    }
+    this.getDataFromServer = async () => {
+        if (!this.auth.W) {
+            window.location.href.replace("login")
+        } else {
+            return this.firestore.collection("UserData/"+this.auth.W+"/workouts").get()
+        }
+    }
   }
 }
 export default Firebase
