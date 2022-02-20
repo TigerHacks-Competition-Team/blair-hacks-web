@@ -13,39 +13,27 @@ function HomePage() {
       <NavBar />
       <div className="main-page">
         <div className="blurb-left">
-          <h1 className="blurb-title">Manage Health</h1>
+          <h1 className="blurb-title">AutoHealth</h1>
           <p className="blurb-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            AutoHealth is an AI driven web-app designed to help people analyze 
+            their workouts, see their progress and assess risks like heart attacks. 
           </p>
           <p className="blurb-sub">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Developed with open source machine learning technologies, AutoHealth
+            is the best way to monitor heart rate for those without access 
+            to heart rate monitoring equipment otherwise.
           </p>
         </div>
 
         <img src={wave} alt="" className="wave" />
 
         <div className="blurb-right" data-aos="fade-up">
-          <h1 className="blurb-title">Manage Health</h1>
+          <h1 className="blurb-title">Analyze your workouts</h1>
           <p className="blurb-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Get live insight into your workout progress with our
+            advanced heart rate monitoring system. By graphing your workout
+            intensity in real time, you're more easily able to see how 
+            you're doing, and when to take a break. 
           </p>
         </div>
 
@@ -53,29 +41,23 @@ function HomePage() {
 
         <div className="blob" data-aos="fade-up">
           <div className="blob-content">
-            <p className="blurb-title">Obesity</p>
+            <p className="blurb-title">See your progrss</p>
             <p className="blurb-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              With an account, you can save each of your workouts, and
+              review them at any time. This is a great way to see how
+              your workouts have improved over time. 
             </p>
           </div>
         </div>
 
         <div className="blurb-left blurb-left-2" data-aos="fade-up">
-          <h1 className="blurb-title">Manage Health</h1>
+          <h1 className="blurb-title">Assess risk</h1>
           <p className="blurb-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            After the pandemic, more and more people started working out at home.
+            Nine in ten americans who workout regularly, workout at home. However, 
+            over 805,000 people will have a heart attack in the United States every year.
+            AutoHealth can see your previous workout progress and determine when a heart
+            attack is likely to orccor.
           </p>
         </div>
 
