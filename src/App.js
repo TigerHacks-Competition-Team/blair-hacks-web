@@ -1,6 +1,11 @@
 import "./App.css";
 import { withFirebase } from "./context";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import useAuthenticated from "./useAuthenticated";
 import { OpenCvProvider } from "opencv-react";
 
@@ -8,6 +13,7 @@ import HomePage from "./HomePage";
 import Login from "./login";
 import Workout from "./Workout";
 import Logout from "./logout";
+import History from "./History";
 
 function App(props) {
   const authenticated = useAuthenticated(props.firebase.auth);
@@ -17,17 +23,14 @@ function App(props) {
       <Router>
         {authenticated ? (
           <Routes>
-            <Route path="/workout" element={<Workout />} />
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/" element={<Workout />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/history" element={<History />} />
           </Routes>
         ) : (
           <Routes>
-            <Route path="/workout" element={<Workout />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Navigate to="/home" />}/>
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/logout" element={<Logout />} />
+            <Route path="/" element={<HomePage />} />
           </Routes>
         )}
       </Router>

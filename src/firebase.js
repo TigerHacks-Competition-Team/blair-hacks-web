@@ -1,3 +1,4 @@
+import { timeDistributed } from "@tensorflow/tfjs-layers/dist/exports_layers";
 import app from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
@@ -34,19 +35,24 @@ class Firebase {
     return this.auth.signOut();
   }
 
-  addUserDoc() {
+  async addUserDoc() {
     return this.firestore
       .collection("users")
       .doc(this.auth.currentUser.uid)
       .set({ lastWorkout: Date.now() }, { merge: true });
   }
 
-  updateData(data) {
+  async updateData(data) {
+    const user = await this.getData();
+    if (user.data() == null) await this.addUserDoc();
+    const workouts = user.data().workouts;
+    workouts.push(data);
+
     return this.firestore
       .collection("users")
       .doc(this.auth.currentUser.uid)
       .update({
-        workouts: app.firestore.FieldValue.arrayUnion(data),
+        workouts,
       });
   }
 

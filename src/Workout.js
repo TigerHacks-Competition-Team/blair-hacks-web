@@ -44,9 +44,9 @@ const Workout = (props) => {
     if (!workingOut && session) {
       console.log(JSON.stringify(session));
       if (session.heartRate.length > 5) {
-        props.firebase.addUserDoc();
         session.end = Date.now();
         props.firebase.updateData(session);
+        console.log("SESSION SAVED");
       }
       setSession(null);
     } else if (workingOut && !session) {
@@ -100,13 +100,12 @@ const Workout = (props) => {
               setWorkingOut(false);
               document.getElementById("start-button").style.display = "initial";
               document.getElementById("workout-ui").style.display = "none";
-            }}>
-              <p>End Workout</p>
-            </div>
+            }}
+          >
+            <p>End Workout</p>
           </div>
-          
         </div>
-      
+      </div>
     </div>
   );
 };
