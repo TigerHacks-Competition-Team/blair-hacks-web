@@ -5,6 +5,7 @@ import Webcam from "react-webcam";
 const BPM = (props) => {
   const webcamRef = useRef(null);
   const [predictions, setPredictions] = useState([]);
+  const [canvasImg, setCanvasImg] = useState("");
   const [done, setDone] = useState(false);
 
   useEffect(() => {
@@ -20,9 +21,13 @@ const BPM = (props) => {
       webcamRef.current.video &&
       webcamRef.current.video.readyState === 4
     ) {
-      const results = await BlazeFace.predict(webcamRef.current.video);
+      const img = await webcamRef.current.video;
+      const tensor = await BlazeFace.imageToTensor(img);
+      console.log(tensor);
+      const results = await BlazeFace.predict(img);
       setPredictions(JSON.stringify(results));
-      console.log(results);
+      const croppedImg = await BlazeFace.extractROI(tensor, results);
+      console.log(croppedImg);
     }
     setDone(true);
   };
@@ -37,7 +42,12 @@ const BPM = (props) => {
   }, [webcamRef.current]);
   return (
     <div>
-      <Webcam ref={webcamRef} />
+      <Webcam
+        ref={webcamRef}
+        width={640}
+        height={480}
+        screenshotFormat="image/png"
+      />
       <button onClick={() => runPredict()}>predict</button>
       <p>{predictions}</p>
     </div>
