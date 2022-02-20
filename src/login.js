@@ -8,6 +8,14 @@ const Login = (props) => {
   props.firebase.ui.start("#firebaseui-auth-container", {
     signInOptions: [props.firebase.app.auth.EmailAuthProvider.PROVIDER_ID],
     signInSuccessUrl: "/",
+    callbacks: {
+      signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+        props.firebase.addUserDoc(authResult.currentUser.uid);
+      },
+      signInFailure: function (error) {
+        console.log(error);
+      },
+    },
   });
 
   return (
