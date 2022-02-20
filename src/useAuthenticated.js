@@ -6,7 +6,9 @@ const useAuthenticated = (auth) => {
     console.log(a);
   }, [a]);
   React.useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => setA(user));
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setA(user);
+    });
     return () => unsubscribe();
   }, []);
 
