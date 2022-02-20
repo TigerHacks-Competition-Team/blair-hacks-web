@@ -193,6 +193,7 @@ body {
   width: 100%;
   height: 100vh;
   filter: var(--shadow-default);
+  background-size: cover;
 }
 #signup {
   background-color: var(--bg-2);
