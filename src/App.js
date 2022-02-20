@@ -6,6 +6,7 @@ import { OpenCvProvider } from "opencv-react";
 
 import HomePage from "./HomePage";
 import Login from "./login";
+import Workout from "./Workout";
 
 function App(props) {
   const authenticated = useAuthenticated(props.firebase.auth);
@@ -15,7 +16,18 @@ function App(props) {
       <Router>
         {authenticated ? (
           <Routes>
-            <Route path="/" element={<p>logged in</p>} />
+            <Route
+              path="/"
+              element={
+                <p>
+                  logged in
+                  <button onClick={() => props.firebase.signOut()}>
+                    Sign Out
+                  </button>
+                </p>
+              }
+            />
+            <Route path="/workout" element={<Workout />} />
           </Routes>
         ) : (
           <Routes>

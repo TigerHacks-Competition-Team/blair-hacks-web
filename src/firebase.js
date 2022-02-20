@@ -34,12 +34,19 @@ class Firebase {
     return this.auth.signOut();
   }
 
+  addUserDoc() {
+    return this.firestore
+      .collection("users")
+      .doc(this.auth.currentUser.uid)
+      .set({ lastWorkout: Date.now() }, { merge: true });
+  }
+
   updateData(data) {
     return this.firestore
       .collection("users")
       .doc(this.auth.currentUser.uid)
       .update({
-        workouts: this.firestore.FieldValue.arrayUnion(data),
+        workouts: app.firestore.FieldValue.arrayUnion(data),
       });
   }
 
