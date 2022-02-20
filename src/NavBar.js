@@ -12,9 +12,9 @@ const NavBar = (props) => {
   return (
     <nav className="navbar">
       <img src={logo} alt="Logo" />
-      <a href="/">Title Text</a>
+      <a href="/about">Title Text</a>
       <div className="nav-links">
-        <a href="/">Home</a>
+        <a href="/about">Home</a>
 
         {!authenticated ? (
           <>
