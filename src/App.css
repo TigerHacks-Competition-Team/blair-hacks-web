@@ -227,10 +227,8 @@ body {
 }
 
 .page-title {
-  background-color: var(--bg-2);
   width: max-content;
   border-radius: 20px;
-  filter: var(--shadow-neu-dark) var(--shadow-neu-light);
   margin-left: 50%;
   transform: translateX(-50%);
   margin-top: 30px;
