@@ -14,7 +14,7 @@ const NavBar = (props) => {
       <img src={logo} alt="Logo" />
       <a href="/">AutoHealth</a>
       <div className="nav-links">
-        <a href="/about">Home</a>
+        <a href="/about">About</a>
 
         {!authenticated ? (
           <>
