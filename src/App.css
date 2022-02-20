@@ -397,3 +397,6 @@ body {
 .firebaseui-button {
   background: var(--accent-grad) !important;
 }
+.firebaseui-container.mdl-card {
+  border-radius: 15px;
+}
