@@ -6,8 +6,8 @@ import useAuthenticated from "./useAuthenticated";
 
 const NavBar = (props) => {
   const authenticated = useAuthenticated(props.firebase.auth);
-  
-  console.log(authenticated)
+
+  console.log(authenticated);
 
   return (
     <nav className="navbar">
@@ -15,13 +15,15 @@ const NavBar = (props) => {
       <a href="/">Title Text</a>
       <div className="nav-links">
         <a href="/">Home</a>
-        <a href="/workout">Work Out</a>
+
         {!authenticated ? (
           <>
             <a href="/login">Log In/Signup</a>
           </>
         ) : (
           <>
+            <a href="/history">History</a>
+            <a href="/workout">Work Out</a>
             <a href="/logout">Log out</a>
           </>
         )}

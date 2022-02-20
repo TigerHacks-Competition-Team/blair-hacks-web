@@ -37,9 +37,9 @@ const Workout = (props) => {
     if (!workingOut && session) {
       console.log(JSON.stringify(session));
       if (session.heartRate.length > 5) {
-        props.firebase.addUserDoc();
         session.end = Date.now();
         props.firebase.updateData(session);
+        console.log("SESSION SAVED");
       }
       setSession(null);
     } else if (workingOut && !session) {
@@ -61,37 +61,43 @@ const Workout = (props) => {
         {workingOut ? "Done" : "Start"}
       </button> */}
 
-        <div className="main-page">
-          <div className="page-title">
-            <p>Workout</p>
-          </div>
-          <div id="start-button" onClick={() => {
+      <div className="main-page">
+        <div className="page-title">
+          <p>Workout</p>
+        </div>
+        <div
+          id="start-button"
+          onClick={() => {
+            setWorkingOut(true);
             document.getElementById("start-button").style.display = "none";
             document.getElementById("workout-ui").style.display = "initial";
-          }}>
-            <p>Start Workout</p>
-          </div>
-          <div id="workout-ui">
-            <div className="center">
-              <div className="camera">
-                <HeartRate id="video-feed" onBPMChange={(bpm) => setBpm(bpm)} />
-                {/* <div id="video-feed"></div> */}
-              </div>
-              <div className="bpm-feed">
-                <p id="bpm">82</p>
-                <p className="bpm-text">BPM</p>
-              </div>
+          }}
+        >
+          <p>Start Workout</p>
+        </div>
+        <div id="workout-ui">
+          <div className="center">
+            <div className="camera">
+              <HeartRate id="video-feed" onBPMChange={(bpm) => setBpm(bpm)} />
+              {/* <div id="video-feed"></div> */}
             </div>
-            <div id="stop-button" onClick={() => {
+            <div className="bpm-feed">
+              <p id="bpm">82</p>
+              <p className="bpm-text">BPM</p>
+            </div>
+          </div>
+          <div
+            id="stop-button"
+            onClick={() => {
+              setWorkingOut(false);
               document.getElementById("start-button").style.display = "initial";
               document.getElementById("workout-ui").style.display = "none";
-            }}>
-              <p>End Workout</p>
-            </div>
+            }}
+          >
+            <p>End Workout</p>
           </div>
-          
         </div>
-      
+      </div>
     </div>
   );
 };
