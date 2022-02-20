@@ -23,6 +23,7 @@ function App(props) {
           </Routes>
         ) : (
           <Routes>
+            <Route path="/workout" element={<Workout />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Navigate to="/home" />}/>
             <Route path="/home" element={<HomePage />} />
