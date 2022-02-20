@@ -16,7 +16,7 @@
   /* shadows */
   --shadow-neu-light: drop-shadow(-10px -10px 30px #ffffff);
   --shadow-neu-dark: drop-shadow(10px 10px 30px rgba(174, 174, 192, 0.4));
-  --shadow-default: drop-shadow(0px 0px 40px rgba(116, 166, 132, 0.7));
+  --shadow-default: drop-shadow(0px 0px 40px rgba(11, 78, 166, 0.7));
 
   /* spacing/sizing */
   --navbar-size: 60px;
@@ -227,3 +227,159 @@ body {
   font-size: 64px;
   font-weight: bold;
 }
+
+.page-title {
+  background-color: var(--bg-2);
+  width: max-content;
+  border-radius: 20px;
+  filter: var(--shadow-neu-dark) var(--shadow-neu-light);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 30px;
+}
+.page-title p {
+  background: var(--accent-grad);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#start-button {
+  /* display: none; */
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  border-radius: 20px;
+  background-color: var(--bg-2);
+  filter: var(--shadow-neu-dark) var(--shadow-neu-light);
+  cursor: pointer;
+}
+#start-button p {
+  background: var(--accent-grad);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#workout-ui {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+
+}
+.camera {
+  background-color: var(--bg-2);
+  filter: var(--shadow-neu-dark) var(--shadow-neu-light);
+  width: max-content;
+  padding: 3em;
+  border-radius: 25px;
+  display: inline-block;
+}
+#video-feed {
+  width: 640px;
+  height: 480px;
+  background-color: lightgray;
+}
+.bpm-feed {
+  background-color: var(--bg-2);
+  filter: var(--shadow-neu-dark) var(--shadow-neu-light);
+  width: max-content;
+  padding: 3em;
+  margin-left: 5em;
+  border-radius: 25px;
+  display: inline-block;
+  width: 640px;
+  height: 480px;
+  transform: translateY(-22.5%);
+}
+#bpm {
+  background: var(--accent-grad);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  font-size: 296px;
+  margin-top: 0.23em;
+  margin-bottom: 0;
+  font-weight: bolder;
+  display: inline-block;
+  margin-left: 0.35em;
+}
+.bpm-text {
+  background: var(--accent-grad);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 46px;
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  height: max-content;
+  width: max-content;
+}
+#canvas {
+  border-radius: 20px;
+}
+
+#stop-button {
+
+  position: absolute;
+  top: 72%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  border-radius: 20px;
+  background-color: var(--bg-2);
+  filter: var(--shadow-neu-dark) var(--shadow-neu-light);
+  cursor: pointer;
+  z-index: 10;
+}
+#stop-button p {
+  background: var(--accent-grad);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 32px;
+  font-weight: bold;
+}
+

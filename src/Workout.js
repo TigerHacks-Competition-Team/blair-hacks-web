@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { withFirebase } from "./context";
 import HeartRate from "./HeartRate";
 import NavBar from "./NavBar";
+import "./App.css";
 
 const Workout = (props) => {
   const [session, setSession] = useState(null);
@@ -14,6 +15,7 @@ const Workout = (props) => {
 
   const onBPMChange = (bpm) => {
     console.log("bpm: ", bpm, "workingout", workingOut);
+    document.getElementById("bpm").innerText = Math.round(bpm);
     if (workingOut) {
       setSession((prev) => {
         const updated = { ...prev };
@@ -45,14 +47,51 @@ const Workout = (props) => {
     }
   }, [workingOut]);
 
+  // document.getElementById("start-button").addEventListener("click", () => {
+  //   document.getElementById("start-button").style.display = "none";
+  //   document.getElementById("workout-ui").style.display = "initial";
+  // });
+
   return (
     <div>
       <NavBar />
-      <HeartRate onBPMChange={(bpm) => setBpm(bpm)} />
+      {/* <HeartRate onBPMChange={(bpm) => setBpm(bpm)} />
 
       <button onClick={() => setWorkingOut((prev) => !prev)}>
         {workingOut ? "Done" : "Start"}
-      </button>
+      </button> */}
+
+        <div className="main-page">
+          <div className="page-title">
+            <p>Workout</p>
+          </div>
+          <div id="start-button" onClick={() => {
+            document.getElementById("start-button").style.display = "none";
+            document.getElementById("workout-ui").style.display = "initial";
+          }}>
+            <p>Start Workout</p>
+          </div>
+          <div id="workout-ui">
+            <div className="center">
+              <div className="camera">
+                <HeartRate id="video-feed" onBPMChange={(bpm) => setBpm(bpm)} />
+                {/* <div id="video-feed"></div> */}
+              </div>
+              <div className="bpm-feed">
+                <p id="bpm">82</p>
+                <p className="bpm-text">BPM</p>
+              </div>
+            </div>
+            <div id="stop-button" onClick={() => {
+              document.getElementById("start-button").style.display = "initial";
+              document.getElementById("workout-ui").style.display = "none";
+            }}>
+              <p>End Workout</p>
+            </div>
+          </div>
+          
+        </div>
+      
     </div>
   );
 };
