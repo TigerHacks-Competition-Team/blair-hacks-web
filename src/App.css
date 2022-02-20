@@ -7,19 +7,25 @@
   --bg-1: #F1F1F1;
   --bg-2: #F5F5F5;
   --bg-3: #FAFAFA;
+  --bg-2-active: #E5E5E5;
   --accent-grad: linear-gradient(50deg, #5766DD, #1AC6FC); /* old purple: #6451D6 */
+
+  /* font */
+  --font: "Recursive";
 
   /* shadows */
   --shadow-neu-light: drop-shadow(-10px -10px 30px #ffffff);
   --shadow-neu-dark: drop-shadow(10px 10px 30px rgba(174, 174, 192, 0.4));
+  --shadow-default: drop-shadow(0px 0px 40px rgba(116, 166, 132, 0.7));
 
   /* spacing/sizing */
-  --navbar-height: 60px;
+  --navbar-size: 60px;
 }
 
 
 body {
   background-color: var(--bg-1);
+  font-family: var(--font)
 }
 
 /* navbar */
@@ -27,13 +33,14 @@ body {
   position: fixed;
   background-color: var(--bg-2);
   width: 100%;
-  height: var(--navbar-height);
+  height: var(--navbar-size);
   filter: var(--shadow-neu-dark);
   /* background: var(--accent-grad); */
+  z-index: 10000;
 }
 .navbar img {
   height: 70%;
-  margin: calc(var(--navbar-height) * 0.15);
+  margin: calc(var(--navbar-size) * 0.15);
 }
 .navbar a {
   background: var(--accent-grad);
@@ -49,7 +56,6 @@ body {
   transform: translateY(-0.5em);
   text-decoration: none;
 
-  font-family: "Recursive";
   font-size: 36px;
   font-weight: bold;
 }
@@ -63,4 +69,160 @@ body {
 }
 .nav-links a:last-child {
   margin-right: 0.3em;
+}
+
+.main-page {
+  padding-top: var(--navbar-size);
+}
+
+.blurb-left {
+  /* background-color: red; */
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 95%;
+}
+.blurb-left .blurb-title {
+  background: var(--accent-grad);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+}
+.blurb-left .blurb-text {
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  width: 45%;
+  font-size: 24px;
+}
+.blurb-left .blurb-sub {
+  font-weight: light;
+  font-size: 18px;
+  margin-top: 0.5em;
+  width: 35%;
+}
+
+.wave {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 10em;
+}
+
+.blurb-right {
+  width: 30%;
+  height: 100px;
+  position: absolute;
+  right: 10%;
+  text-align: center;
+  color: white;
+  /* margin-top: 7.5em; */
+  margin-top: 7.5em;
+}
+
+
+.blurb-title {
+  margin-bottom: 0.5em;
+  font-size: 48px;
+  font-weight: bold;
+}
+.blurb-text {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.graph {
+  background-color: var(--bg-2);
+  border-radius: 15px;
+  width: 800px;
+  height: 500px;
+  margin-top: 250px;
+  margin-left: 200px;
+  filter: var(--shadow-default);
+}
+
+
+.blob {
+  background-image: url(./blob.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  width: 35%;
+  height: 600px;
+  padding: 50px;
+
+
+  margin-top: 10%;
+  margin-left: 50%;
+
+  filter: var(--shadow-default);
+  /* background-color: red; */
+}
+.blob-content {
+  width: 90%;
+  margin-left: 7%;
+  margin-top: 15%;
+  /* background-color: blue; */
+  text-align: center;
+}
+.blob-content .blurb-title {
+  margin-left: 20%;
+  color: white;
+}
+.blob-content .blurb-text {
+  color: white;
+  margin-top: 12%;
+  margin-left: -5%;
+}
+
+
+.blurb-left-2 {
+  text-align: center;
+  width: 40%;
+  
+}
+.blurb-left-2 .blurb-text {
+  width: initial;
+}
+
+.bottom-curve {
+  background-image: url(./bottom-curve.svg);
+  width: 100%;
+  height: 100vh;
+  filter: var(--shadow-default);
+}
+#signup {
+  background-color: var(--bg-2);
+  width: max-content;
+  position: absolute;
+  padding: none;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 25%;
+  border-radius: 20px;
+  filter: var(--shadow-default);
+  cursor: pointer;
+}
+#signup:hover {
+  background-color: white;
+}
+#signup:active, #signup:focus {
+  background-color: var(--bg-2-active);
+}
+.signup-text {
+  background: var(--accent-grad);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 64px;
+  font-weight: bold;
 }
