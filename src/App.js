@@ -26,11 +26,14 @@ function App(props) {
             <Route path="/" element={<Workout />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/history" element={<History />} />
+            <Route path="/workout" element={<Workout />} />
+            <Route path="/about" element={<HomePage />} />
           </Routes>
         ) : (
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<HomePage />} />
           </Routes>
         )}
       </Router>
