@@ -1,19 +1,30 @@
-import React from 'react';
-import { withFirebase } from './context';
-import * as firebaseui from 'firebaseui'
-import 'firebaseui/dist/firebaseui.css'
+import React from "react";
+import { withFirebase } from "./context";
+import * as firebaseui from "firebaseui";
+import "firebaseui/dist/firebaseui.css";
 
 const Login = (props) => {
-    props.firebase.ui.start('#firebaseui-auth-container', {
-        signInOptions: [
-            props.firebase.app.auth.EmailAuthProvider.PROVIDER_ID,
-        ],
-        signInSuccessUrl: '/',
-    });
+  props.firebase.ui.start("#firebaseui-auth-container", {
+    signInOptions: [props.firebase.app.auth.EmailAuthProvider.PROVIDER_ID],
+    signInSuccessUrl: "/",
+  });
 
-    return (
-        <div id='firebaseui-auth-container'></div>
-    );
-}
+  return (
+    <div>
+      <div id="navbar" className="nav">
+        <p>Temporary Project Name</p>
+        <button
+          className="loginButton"
+          onClick={(e) => {
+            window.location.href = "/";
+          }}
+        >
+          Home
+        </button>
+      </div>
+      <div id="firebaseui-auth-container"></div>
+    </div>
+  );
+};
 
 export default withFirebase(Login);
