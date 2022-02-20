@@ -15,9 +15,10 @@ const NavBar = (props) => {
       <a href="/">Title Text</a>
       <div className="nav-links">
         <a href="/">Home</a>
+        <a href="/workout">Work Out</a>
         {!authenticated ? (
           <>
-            <a href="/login">Login/Signup</a>
+            <a href="/login">Log In/Signup</a>
           </>
         ) : (
           <>
