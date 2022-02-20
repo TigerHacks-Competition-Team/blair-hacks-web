@@ -11,6 +11,7 @@ const History = (props) => {
     props.firebase.getData().then((snap) => {
       const doc = snap.data();
       setSessions(doc.workouts);
+      console.log(JSON.stringify(doc));
     });
   }, []);
 
