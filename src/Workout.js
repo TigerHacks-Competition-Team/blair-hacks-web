@@ -116,11 +116,7 @@ const Workout = (props) => {
                   >
                     <XAxis dataKey="name" tickFormatter={formatDate} />
                     <YAxis />
-                    <Line
-                      type="monotone"
-                      dataKey="bpm"
-                      stroke="rgb(255, 0, 0)"
-                    />
+                    <Line type="monotone" dataKey="bpm" stroke="#497CE4" />
                   </LineChart>
                 </>
               )}

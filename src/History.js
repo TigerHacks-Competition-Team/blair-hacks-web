@@ -41,7 +41,17 @@ const History = (props) => {
           }}
         >
           {sessions.map((sess) => (
-            <div key={sess.start}>
+            <div
+              key={sess.start}
+              style={{
+                backgroundColor: "#f5f5f5",
+                borderRadius: "15px",
+                padding: "15px",
+                margin: "15px",
+                filter:
+                  "drop-shadow(-10px -10px 30px #ffffff) drop-shadow(10px 10px 30px rgba(174, 174, 192, 0.4))",
+              }}
+            >
               <p>
                 Avg. BPM:
                 {Math.round(
@@ -61,7 +71,7 @@ const History = (props) => {
               >
                 <XAxis dataKey="name" tickFormatter={formatDate} />
                 <YAxis />
-                <Line type="monotone" dataKey="bpm" stroke="rgb(255, 0, 0)" />
+                <Line type="monotone" dataKey="bpm" stroke="#497CE4" />
               </LineChart>
             </div>
           ))}
