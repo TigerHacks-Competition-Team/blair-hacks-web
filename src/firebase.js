@@ -30,6 +30,10 @@ class Firebase {
     this.app = app;
   }
 
+  signOut() {
+    return this.auth.signOut();
+  }
+
   updateData(data) {
     return this.firestore
       .collection("users")
