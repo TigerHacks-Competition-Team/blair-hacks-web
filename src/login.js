@@ -23,7 +23,9 @@ const Login = (props) => {
   return (
     <div>
       <NavBar />
-      <div id="firebaseui-auth-container"></div>
+      <div id="login-container">
+        <div id="firebaseui-auth-container"></div>
+      </div>
     </div>
   );
 };
