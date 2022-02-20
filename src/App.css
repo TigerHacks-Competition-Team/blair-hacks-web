@@ -285,8 +285,6 @@ body {
   height: 100%;
   width: 100%;
   position: absolute;
-
-
 }
 .camera {
   background-color: var(--bg-2);
@@ -383,3 +381,9 @@ body {
   font-weight: bold;
 }
 
+#firebaseui-auth-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
