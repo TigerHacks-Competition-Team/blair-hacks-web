@@ -54,7 +54,6 @@ class Firebase {
       .update({
         workouts,
       });
-    3;
   }
 
   getData() {
