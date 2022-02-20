@@ -173,8 +173,9 @@ body {
 }
 .blob-content .blurb-text {
   color: white;
-  margin-top: 12%;
+  margin-top: 14%;
   margin-left: -5%;
+  font-size: 28px;
 }
 
 .blurb-left-2 {

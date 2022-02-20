@@ -45,7 +45,9 @@ function HomePage() {
             <p className="blurb-text">
               With an account, you can save each of your workouts, and
               review them at any time. This is a great way to see how
-              your workouts have improved over time. 
+              your workouts have improved over time. Even if you don't
+              have an account, though, you can still use the app, your
+              workout history just won't save.
             </p>
           </div>
         </div>
