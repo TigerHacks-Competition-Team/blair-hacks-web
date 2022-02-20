@@ -5,17 +5,23 @@ import logo from "./logo.svg";
 import useAuthenticated from "./useAuthenticated";
 
 const NavBar = (props) => {
-  const isAuthenticated = useAuthenticated(props.firebase.auth);
+  const authenticated = useAuthenticated(props.firebase.auth);
+  
+  console.log(authenticated)
+
   return (
     <nav className="navbar">
       <img src={logo} alt="Logo" />
       <a href="/">Title Text</a>
       <div className="nav-links">
         <a href="/">Home</a>
-        {!isAuthenticated && (
+        {!authenticated ? (
           <>
-            <a href="/signup">Sign Up</a>
-            <a href="/login">Login</a>
+            <a href="/login">Login/Signup</a>
+          </>
+        ) : (
+          <>
+            <a href="/logout">Log out</a>
           </>
         )}
       </div>

@@ -3,6 +3,7 @@ import { withFirebase } from "./context";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 import "./App.css";
+import NavBar from "./NavBar";
 
 const Login = (props) => {
   props.firebase.ui.start("#firebaseui-auth-container", {
@@ -10,6 +11,7 @@ const Login = (props) => {
     signInSuccessUrl: "/",
     callbacks: {
       signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+        window.location.href = "/"
         props.firebase.addUserDoc(authResult.currentUser.uid);
       },
       signInFailure: function (error) {
@@ -20,17 +22,7 @@ const Login = (props) => {
 
   return (
     <div>
-      <div id="navbar" className="nav">
-        <p>Temporary Project Name</p>
-        <button
-          className="loginButton"
-          onClick={(e) => {
-            window.location.href = "/";
-          }}
-        >
-          Home
-        </button>
-      </div>
+      <NavBar />
       <div id="firebaseui-auth-container"></div>
     </div>
   );
