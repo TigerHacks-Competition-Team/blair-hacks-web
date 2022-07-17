@@ -4,4 +4,5 @@ WebApp that uses machine learning and computer vision based heart rate tracking 
 
 ## Tech
  - OpenCV: used in algorithms for tracking heart rate.
- - React.JS: web framework used to build an interactive and responsive UI
+ - React.JS: web framework used to build an interactive and responsive UI.
+ - Firebase: cloud service used for account management for persistence across sessions.
